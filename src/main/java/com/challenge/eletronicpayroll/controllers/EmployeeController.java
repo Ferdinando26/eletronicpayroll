@@ -61,18 +61,20 @@ public class EmployeeController {
 
 		return list;
 	}
+
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<Void> delete(@PathVariable Long id){
-		
+	public ResponseEntity<Void> delete(@PathVariable Long id) {
+
 		employeeService.delete(id);
 		return ResponseEntity.noContent().build();
-		
+
 	}
-	
-	public ResponseEntity<Void> update (@Valid @RequestBody Employee obj){
-		
-		
-		return 
+
+	public ResponseEntity<Void> update(@Valid @RequestBody Employee obj) {
+
+		employeeService.update(obj);
+
+		return ResponseEntity.noContent().build();
 	}
 
 }
