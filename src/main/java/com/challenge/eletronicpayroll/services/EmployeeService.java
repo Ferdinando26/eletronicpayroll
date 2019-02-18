@@ -59,12 +59,11 @@ public class EmployeeService {
 
 	public Employee update(Employee obj) {
 		Employee newObj = find(obj.getId());
-		if (Objects.isNull(obj) && Objects.isNull(obj.getId())) {
 
-			newObj.setName(obj.getName());
-			newObj.setPis(obj.getPis());
-			newObj.setProject(obj.getProject());
-		}else System.out.println("The update wasn't sucessfully done");
+		newObj.setName(obj.getName());
+		newObj.setPis(obj.getPis());
+		newObj.setProject(obj.getProject());
+		System.out.println("The update wasn't successfully done");
 
 		return employeeRepository.save(newObj);
 	}

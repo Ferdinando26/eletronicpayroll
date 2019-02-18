@@ -69,10 +69,11 @@ public class EmployeeController {
 		return ResponseEntity.noContent().build();
 
 	}
-
-	public ResponseEntity<Void> update(@Valid @RequestBody Employee obj) {
-
+	@RequestMapping(value = "/{id}", method = RequestMethod.POST)
+	public ResponseEntity<Void> update(@Valid @RequestBody Employee obj, @PathVariable Long id) {
+		obj.setId(id);
 		employeeService.update(obj);
+		System.out.println("The employee with ID number: " + obj.getId() + " was succesfully updated");
 
 		return ResponseEntity.noContent().build();
 	}
